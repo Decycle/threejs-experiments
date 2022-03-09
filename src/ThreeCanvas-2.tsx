@@ -1,17 +1,11 @@
 import { Canvas, useThree } from '@react-three/fiber'
-import React, { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import {
   OrbitControls,
   PerspectiveCamera,
-  useHelper,
-  useTexture,
 } from '@react-three/drei'
 import { useControls } from 'leva'
-import {
-  CameraHelper,
-  MeshBasicMaterial,
-  MeshStandardMaterial,
-} from 'three'
+import { CameraHelper, MeshStandardMaterial } from 'three'
 
 const Objects = () => {
   const material = useMemo(

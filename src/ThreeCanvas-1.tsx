@@ -5,12 +5,7 @@ import {
   useFrame,
   useLoader,
 } from '@react-three/fiber'
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from 'react'
+import { useLayoutEffect, useMemo, useRef } from 'react'
 import {
   OrbitControls,
   PerspectiveCamera,
@@ -19,15 +14,11 @@ import {
 } from '@react-three/drei'
 import { useControls } from 'leva'
 import {
-  Mesh,
-  MeshBasicMaterial,
   MeshMatcapMaterial,
   MeshStandardMaterial,
-  MeshToonMaterial,
   Shape,
   ShapeGeometry,
   Texture,
-  TorusGeometry,
 } from 'three'
 
 import * as NEA from 'fp-ts/NonEmptyArray'

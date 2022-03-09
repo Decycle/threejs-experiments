@@ -1,18 +1,8 @@
-import { Canvas, useThree } from '@react-three/fiber'
-import React, { useEffect, useMemo, useRef } from 'react'
+import { Canvas } from '@react-three/fiber'
 import {
   OrbitControls,
   PerspectiveCamera,
-  useHelper,
-  useTexture,
 } from '@react-three/drei'
-import { useControls } from 'leva'
-import {
-  CameraHelper,
-  MeshBasicMaterial,
-  MeshStandardMaterial,
-} from 'three'
-
 const Ground = (props: JSX.IntrinsicElements['mesh']) => {
   return (
     <mesh>

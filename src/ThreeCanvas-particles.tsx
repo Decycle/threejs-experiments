@@ -17,7 +17,6 @@ import {
   BufferGeometry,
   Color,
   DoubleSide,
-  Euler,
   PointsMaterial,
   Quaternion,
   Vector3,

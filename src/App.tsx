@@ -1,4 +1,4 @@
-import ThreeCanvas from './ThreeCanvas-particles'
+import ThreeCanvas from './ThreeCanvas-shader'
 import './App.css'
 import { Suspense } from 'react'
 
