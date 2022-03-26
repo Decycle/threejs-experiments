@@ -9,6 +9,11 @@ import {
   ArrowHelper,
   BufferAttribute,
   BufferGeometry,
+  Color,
+  DoubleSide,
+  Euler,
+  PointsMaterial,
+  Quaternion,
   Raycaster,
   Vector3,
 } from 'three'
