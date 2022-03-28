@@ -11,7 +11,7 @@ import {
 import { useState } from 'react'
 import * as THREE from 'three'
 
-const Particles = () => {
+const GameOfLife = () => {
   const height = 512
   const width = 512
 
@@ -48,7 +48,7 @@ const Particles = () => {
 
   const randomColors = new Float32Array(512 * 512 * 4)
   for (let i = 0; i < randomColors.length; i += 4) {
-    const intensity = Math.random() > 0.9 ? 1 : 0
+    const intensity = Math.random() > 0.2 ? 1 : 0
 
     randomColors[i] = intensity
     randomColors[i + 1] = intensity
@@ -130,7 +130,7 @@ const Particles = () => {
     `,
   })
 
-  useFrame(({ gl }) => {
+  const render = (gl: THREE.WebGLRenderer) => {
     gl.setRenderTarget(bufferTarget)
     gl.clear()
     gl.render(bufferScene, camera)
@@ -141,7 +141,16 @@ const Particles = () => {
     gl.render(mainScene, camera)
     simulationMaterial.uniforms.previous_tex.value =
       mainTarget.texture
+  }
+
+  let frame = 0
+
+  useFrame(({ gl, clock }) => {
+    if (frame % 50 === 0) {
+      render(gl)
+    }
     gl.setRenderTarget(null)
+    frame++
   })
 
   return (
@@ -164,7 +173,15 @@ const Particles = () => {
         </mesh>,
         mainScene
       )}
-      <mesh position={[0, 0, 0]}>
+      <mesh
+        position={[0, 0, 0]}
+        onClick={(e) => {
+          if (!e.uv) return
+          const x = Math.floor(e.uv.x * width)
+          const y = Math.floor(e.uv.y * height)
+
+          console.log(x, y)
+        }}>
         <meshBasicMaterial map={mainTarget.texture} />
         <planeBufferGeometry
           attach='geometry'
@@ -178,7 +195,7 @@ const Particles = () => {
 const Scene = () => {
   return (
     <>
-      <Particles />
+      <GameOfLife />
     </>
   )
 }

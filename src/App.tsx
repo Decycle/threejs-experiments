@@ -1,4 +1,4 @@
-import ThreeCanvas from './ThreeCanvasFBO'
+import ThreeCanvas from './ThreeCanvas-cave'
 import './App.css'
 import { Suspense } from 'react'
 
